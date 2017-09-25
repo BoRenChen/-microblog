@@ -1,0 +1,33 @@
+<h2>Show Status</h2>
+
+<ul>
+
+  <li>
+    <strong>Createby:</strong>
+    <%= @status.createBy %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @status.content %>
+  </li>
+
+  <li>
+    <strong>Hashtag:</strong>
+    <%= @status.hashTag %>
+  </li>
+
+  <li>
+    <strong>Attag:</strong>
+    <%= @status.atTag %>
+  </li>
+
+  <li>
+    <strong>Like:</strong>
+    <%= @status.like %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: status_path(@conn, :edit, @status) %></span>
+<span><%= link "Back", to: status_path(@conn, :index) %></span>
