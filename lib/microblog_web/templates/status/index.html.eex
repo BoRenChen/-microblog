@@ -1,5 +1,39 @@
+<!-- status_index-->
+<!--old
 <h2>Listing Statuses</h2>
+-->
+<h2>New Statuses</h2>
 
+<!--version 1-->
+
+<div class="row">
+   <div class="col-md-12">
+
+<%= for status <- @statuses do %>
+<div class="card bg-light mb-3">
+  <div class="card-header"><a href=""><%= status.createBy %></a></div>
+  <div class="card-body">
+    <h4 class="card-title"><%= status.content %></h4>
+    <h6 class="card-title"><%= status.inserted_at %></h6>
+    <p class="card-text">Followers</p>
+    <p class="card-text"><%= status.like %> Likes</p>
+
+    <!-- D
+    <span><%= link "Go to Post", to: status_path(@conn, :show, status), class: "btn btn-default btn-xs" %></span> 
+      -->
+    <a><%= link "Go to Post", to: status_path(@conn, :show, status), class: "card-link" %></a> 
+
+  </div>
+
+  <div class="card-footer text-muted">
+    @ <a href=""><%= status.atTag %></a>&nbsp;# <a href=""><%= status.hashTag %></a>
+  </div>
+  </div>
+
+<% end %>
+</div>
+</div>
+<!-- Old
 <table class="table">
   <thead>
     <tr>
@@ -32,3 +66,4 @@
 </table>
 
 <span><%= link "New Status", to: status_path(@conn, :new) %></span>
+-->

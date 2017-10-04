@@ -1,0 +1,20 @@
+<h2>Show User</h2>
+
+<ul>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>Firstname:</strong>
+    <%= @user.firstName %>
+  </li>
+
+  <li>
+    <strong>Lastname:</strong>
+    <%= @user.lastName %>
+  </li>
+
+</ul>

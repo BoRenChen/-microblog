@@ -1,7 +1,71 @@
-<h2>Show Status</h2>
 
+<%= if !@user do %>
+<%= MicroblogWeb.PageController.index(@conn, :index) %>
+<% end %>
+            <h2>Post by <a href=""> 
+
+                  <%= link @status.hashTag, to: user_path(@conn, :show, Microblog.Blog.get_user!(@status.user_id)), class: "h2"  %>
+            </a></h2>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card bg-light mb-3">
+            <div class="card-body">
+              <h4 class="card-title">
+
+                  <%= @status.content %>
+
+              </h4>
+              <h6 class="card-title">- 
+
+                  <%= @status.inserted_at %>
+
+              </h6>
+              <p class="card-text">
+
+                  <%= @status.like %> like
+
+              </p>
+            </div>
+            <div class="card-footer text-muted">
+
+             
+
+              @ <a href=""> <span><%= link @status.atTag, to: user_path(@conn, :show, Microblog.Blog.get_user!(@status.user_id)), class: "btn btn-secondory btn-xs"  %></span>
+
+              </a>&nbsp;# <a href=""> <span><%= link @status.hashTag, to: user_path(@conn, :show, Microblog.Blog.get_user!(@status.user_id)), class: "btn btn-secondory btn-xs"  %></span>
+</a>
+
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <span><%= link "Like!", to: status_path(@conn, :show, @status), class: "btn btn-secondory btn-xs"  %></span>
+
+
+<%= if @user.id==@status.user_id do %>
+
+          <span><%= link "Edit", to: status_path(@conn, :edit, @status), class: "btn btn-secondory btn-xs"  %></span>
+
+
+<% end %>
+          <span><%= link "Back", to: status_path(@conn, :index), class: "btn btn-secondory btn-xs" %></span>
+
+        </div>
+      </div>
+    </div>
+
+<!--
 <ul>
-
   <li>
     <strong>Createby:</strong>
     <%= @status.createBy %>
@@ -19,7 +83,7 @@
 
   <li>
     <strong>Attag:</strong>
-    <%= @status.atTag %>
+
   </li>
 
   <li>
@@ -27,7 +91,12 @@
     <%= @status.like %>
   </li>
 
+
 </ul>
 
-<span><%= link "Edit", to: status_path(@conn, :edit, @status) %></span>
+<span><%= link @status.user_id, to: status_path(@conn, :edit, @status) %></span>
+
+
 <span><%= link "Back", to: status_path(@conn, :index) %></span>
+
+-->

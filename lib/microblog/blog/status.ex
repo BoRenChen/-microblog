@@ -10,6 +10,7 @@ defmodule Microblog.Blog.Status do
     field :createBy, :string
     field :hashTag, :string
     field :like, :decimal
+    belongs_to :user, Microblog.Blog.User
 
     timestamps()
   end
@@ -17,7 +18,9 @@ defmodule Microblog.Blog.Status do
   @doc false
   def changeset(%Status{} = status, attrs) do
     status
-    |> cast(attrs, [:createBy, :content, :hashTag, :atTag, :like])
-    |> validate_required([:createBy, :content, :hashTag, :atTag, :like])
+    |> cast(attrs, [:createBy, :content, :hashTag, :atTag, :like, :user_id])
+    |> validate_required([:createBy, :content, :hashTag, :atTag, :like,:user_id])
   end
+
+  
 end
