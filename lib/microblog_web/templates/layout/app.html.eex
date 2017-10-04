@@ -19,13 +19,14 @@
       <%= link "Oceanwave", to: status_path(@conn, :index), class: "navbar-brand"%>
       <button class="navbar-toggler" type="button"
               data-toggle="collapse" data-target="#main-navbar">
+        <span class="navbar-toggler-icon"></span>
 
       </button>
 
       <div class="collapse navbar-collapse" id="main-navbar">
         <ul class="navbar-nav mr-auto">
 
-          <%= if @user do %>
+          <%= if @session_user do %>
           <li class="nav-item active">
             <%= link "Home", to: status_path(@conn, :index), class: "nav-link"%>
           </li>
@@ -35,7 +36,7 @@
           </li>
           -->
           <li class="nav-item active">
-            <%= link "Profile", to: user_path(@conn, :show, @user), class: "nav-link"%>
+            <%= link "Profile", to: user_path(@conn, :show, @session_user), class: "nav-link"%>
           </li>
           <li class="nav-item active">
             <%= link "NewStatus", to: status_path(@conn, :new), class: "nav-link"%>
@@ -62,9 +63,9 @@
         <input type="text" placeholder="email" class="form-control mr-sm-2">
         <input type="submit" value="Log in" class="btn btn-primary my-2 my-sm-0">
 -->
-         <%= if @user do %>
+         <%= if @session_user do %>
           <span class="text-light">
-            <%= @user.email %> |
+            <%= @session_user.email %> |
             <%= link("logout", to: session_path(@conn, :logout), method: :delete) %>
           </span>
         <% else %>

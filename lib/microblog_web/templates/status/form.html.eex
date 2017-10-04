@@ -7,7 +7,7 @@
 
   <div class="form-group" hidden>
     <%= label f, :createBy, class: "control-label" %>
-    <%= text_input f, :createBy, class: "form-control" ,value: @user.firstName %>
+    <%= text_input f, :createBy, class: "form-control" ,value: @session_user.firstName %>
     <%= error_tag f, :createBy %>
   </div>
 
@@ -19,13 +19,13 @@
 
   <div class="form-group" hidden>
     <%= label f, :hashTag, class: "control-label" %>
-    <%= text_input f, :hashTag, class: "form-control", value: @user.firstName%>
+    <%= text_input f, :hashTag, class: "form-control", value: @session_user.firstName%>
     <%= error_tag f, :hashTag %>
   </div>
 
   <div class="form-group" hidden>
     <%= label f, :atTag, class: "control-label" %>
-    <%= text_input f, :atTag, class: "form-control", value: @user.firstName %>
+    <%= text_input f, :atTag, class: "form-control", value: @session_user.firstName %>
     <%= error_tag f, :atTag %>
   </div>
 
@@ -37,7 +37,7 @@
 
   <div class="form-group" hidden>
     <%= label f, :user_id, class: "control-label" %>
-    <%= number_input f, :user_id, step: "any", class: "form-control", value: @user.id%>
+    <%= number_input f, :user_id, step: "any", class: "form-control", value: @session_user.id%>
     <%= error_tag f, :user_id %>
   </div>
 

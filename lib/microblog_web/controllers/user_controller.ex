@@ -18,8 +18,8 @@ defmodule MicroblogWeb.UserController do
     case Blog.create_user(user_params) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "User created successfully.")
-        |> redirect(to: user_path(conn, :show, user))
+        |> put_flash(:info, "User #{user.email} created successfully. Login now!")
+        |> redirect(to: status_path(conn, :index))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
