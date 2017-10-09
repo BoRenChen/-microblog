@@ -23,6 +23,7 @@ defmodule MicroblogWeb.Router do
     get "/", PageController, :index
     resources "/statuses", StatusController
     resources "/users", UserController
+    resources "/follows", FollowController
     post "/sessions", SessionController, :create
     delete "/sessions", SessionController, :logout
   end

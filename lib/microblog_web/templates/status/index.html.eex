@@ -11,7 +11,6 @@
 
 <%= for status <- @statuses do %>
 <div class="card bg-light mb-3">
-  <div class="card-header"><a href=""><%= status.createBy %></a></div>
   <div class="card-body">
     <h4 class="card-title"><%= status.content %></h4>
     <h6 class="card-title"><%= status.inserted_at %></h6>
@@ -21,13 +20,15 @@
     <!-- D
     <span><%= link "Go to Post", to: status_path(@conn, :show, status), class: "btn btn-default btn-xs" %></span> 
       -->
+    <%= if @session_user do %>
     <a><%= link "Go to Post", to: status_path(@conn, :show, status), class: "card-link" %></a> 
 
+    <% else %>
+
+    <a><%= link "Sign Up to Go to Post", to: user_path(@conn, :new), class: "card-link" %></a> 
+    <% end %>
   </div>
 
-  <div class="card-footer text-muted">
-    @ <a href=""><%= status.atTag %></a>&nbsp;# <a href=""><%= status.hashTag %></a>
-  </div>
   </div>
 
 <% end %>

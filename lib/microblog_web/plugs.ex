@@ -5,9 +5,9 @@ defmodule MicroblogWeb.Plugs do
     user_id = get_session(conn, :user_id)
     if user_id do
       user = Microblog.Blog.get_user!(user_id)
-      assign(conn, :user, user)
+      assign(conn, :session_user, user)
     else
-      assign(conn, :user, nil)
+      assign(conn, :session_user, nil)
     end
   end
  end

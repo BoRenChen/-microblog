@@ -1,5 +1,5 @@
 
-<%= if !@user do %>
+<%= if !@session_user do %>
 <%= MicroblogWeb.PageController.index(@conn, :index) %>
 <% end %>
             <h2>Post by <a href=""> 
@@ -52,7 +52,7 @@
           <span><%= link "Like!", to: status_path(@conn, :show, @status), class: "btn btn-secondory btn-xs"  %></span>
 
 
-<%= if @user.id==@status.user_id do %>
+<%= if @session_user.id==@status.user_id do %>
 
           <span><%= link "Edit", to: status_path(@conn, :edit, @status), class: "btn btn-secondory btn-xs"  %></span>
 
