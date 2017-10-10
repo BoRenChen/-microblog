@@ -14,8 +14,6 @@
   <div class="card-body">
     <h4 class="card-title"><%= status.content %></h4>
     <h6 class="card-title"><%= status.inserted_at %></h6>
-    <p class="card-text">Followers</p>
-    <p class="card-text"><%= status.like %> Likes</p>
 
     <!-- D
     <span><%= link "Go to Post", to: status_path(@conn, :show, status), class: "btn btn-default btn-xs" %></span> 
