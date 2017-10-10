@@ -18,4 +18,19 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
-# -microblog
+## -microblog
+
+Github:
+https://github.com/BoRenChen/-microblog
+Applink:
+microblog.oceanabo.com
+
+
+##Feature
+
+Like
+The appication allows user to like posts, User can like a post as many times as user like to show how many like the post is making user feels "LIKEING" the amount of likes in relates to user and post are stored in database for future features
+
+Deploy Script
+Referernce and modified from https://github.com/NatTuck/nu_mart/blob/master/deploy.sh
+script is placed in the deployed tar in the home directory, run your script by typing "./deploy.sh /home/microblog/prod" in the server termianl under home directory of the deployed folder in my case "/home/microblog/predeploy"
