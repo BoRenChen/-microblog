@@ -19,6 +19,11 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 import socket from "./socket"
 
+<<<<<<< HEAD
+=======
+// import socket from "./socket"
+
+>>>>>>> 365c9ac9e45d97115a186c758819e93cce491e8c
 let handlebars = require("handlebars");
 
 $(function() {
