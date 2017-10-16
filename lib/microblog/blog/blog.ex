@@ -19,12 +19,14 @@ defmodule Microblog.Blog do
   """
   def list_statuses do
     Repo.all(Status)
+    |> Repo.preload(:likes)
   end
 
   def get_statuses_by_userId(user_id) do
     query = from s in Status, where: s.user_id == ^user_id
 
     Repo.preload(Repo.all(query), :user)
+    |> Repo.preload(:likes)
   end
 
   @doc """
@@ -121,6 +123,7 @@ defmodule Microblog.Blog do
   """
   def list_users do
     Repo.all(User)
+    |> Repo.preload(:likes)
   end
 
   @doc """

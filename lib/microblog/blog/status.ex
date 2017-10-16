@@ -2,6 +2,8 @@ defmodule Microblog.Blog.Status do
   use Ecto.Schema
   import Ecto.Changeset
   alias Microblog.Blog.Status
+  alias Microblog.Blog.User
+  alias Microblog.Feedback.Like
 
 
   schema "statuses" do
@@ -11,6 +13,7 @@ defmodule Microblog.Blog.Status do
     field :hashTag, :string
     field :like, :decimal
     belongs_to :user, Microblog.Blog.User
+    has_many :likes, Microblog.Feedback.Like
 
     timestamps()
   end
