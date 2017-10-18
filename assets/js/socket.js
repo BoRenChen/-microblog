@@ -54,7 +54,39 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("updates:lobby", {})
+let channel 		= socket.channel("updates:lobby", {})
+
+//status new Page
+let statusBtn 		= $("#status-submit")
+let statusC 		= $("#scontent")
+let statusName		= $("#sfirstname")
+//status index page
+let statusContainer = $("#statuses")
+let liveUpdate 		= $("#new-update")
+statusBtn.click(function(){
+	let str = '';
+	str += Date();
+	str += '&nbsp;&nbsp;&nbsp;--'
+	str += statusName.val();
+	str += '-- &nbsp;&nbsp;&nbsp; Say &nbsp;&nbsp;&nbsp; </br>---&nbsp;&nbsp;'
+	str += statusC.val();
+	str += '&nbsp;&nbsp;---'
+	console.log(str);
+	if(statusC.val()){
+	channel.push("new_status", {body: str});
+	console.log("btnPressed");
+
+	}
+})
+
+channel.on("new_status", payload => {
+	liveUpdate.attr('style', 'visibility: visble')
+	statusContainer.append('<br/>');
+	statusContainer.append(payload.body);
+	console.log("statusRecieved");
+
+})
+
 channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })

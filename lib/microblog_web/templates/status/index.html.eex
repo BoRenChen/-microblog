@@ -2,13 +2,14 @@
 <!--old
 <h2>Listing Statuses</h2>
 -->
+<h3 id="new-update" style="visibility: hidden">Live Update</h3>
+<div id = "statuses"></div>
+
 <h2>New Statuses</h2>
-
 <!--version 1-->
-
+</br>
 <div class="row">
    <div class="col-md-12">
-
 <%= for status <- @statuses do %>
 <div class="card bg-light mb-3">
   <div class="card-body">

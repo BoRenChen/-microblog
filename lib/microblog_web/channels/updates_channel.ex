@@ -9,6 +9,17 @@ defmodule MicroblogWeb.UpdatesChannel do
     end
   end
 
+  def handle_in("new_status", %{"body" => body}, socket) do
+    broadcast! socket, "new_status", %{body: body}
+    {:noreply, socket}
+  end
+
+  def handle_out("new_status", payload, socket) do
+    push socket, "new_status", payload
+    {:noreply, socket}
+  end
+
+ 
   # Channels can be used in a request/response fashion
   # by sending replies to requests from the client
   def handle_in("ping", payload, socket) do
