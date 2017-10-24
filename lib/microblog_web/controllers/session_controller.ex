@@ -24,5 +24,21 @@ defmodule MicroblogWeb.SessionController do
     |> put_session(:user_id, nil)
     |> put_flash(:info, "Logged out")
     |> redirect(to: status_path(conn, :index))
+  
+    # COPY FROM NAT's NOTES
+    # TODO: Move to user.ex
+  def get_and_auth_user(email, password) do
+    user = Accounts.get_user_by_email(email)
+    case Comeonin.Argon2.check_pass(user, password) do
+      {:ok, user} -> user
+      _else       -> nil
+    end
   end
+
+  def login(conn, %{"email" => email, "password" => password}) do
+    user = get_and_auth_user(email, password)
+    
+  # ...
+      |> put_flash(:error, "Bad email/password")
+ end
 end
